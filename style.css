@@ -27,3 +27,23 @@ nav {
   font-size: 2rem;
   padding: 0.5rem;
 }
+
+.btn {
+  cursor: pointer;
+}
+
+#one{
+  background-color: #00ffff;
+}
+
+#two{
+  background-color: yellow;
+}
+
+#three{
+  background-color: #ff00ff;
+}
+
+#four{
+  background-color: black;
+}

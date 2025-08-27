@@ -1,8 +1,7 @@
-
 :root {
-  --color-bg: #69F7BE;
+  --color-bg: #69f7be;
   --color-text-main: #000000;
-  --color-primary: #FFFF00;
+  --color-primary: #ffff00;
   --wrapper-height: 87vh;
   --image-max-width: 300px;
   --image-margin: 3rem;
@@ -18,32 +17,107 @@
   display: none !important;
 }
 
+/* Make sure A-Frame scene doesn't overlap our dock */
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Adding a subtle indicator for active button */
+.btn.active {
+  /* box-shadow: 0 0 15px rgba(255, 255, 255, 0.7); */
+  border: 2px solid #bebebe;
+  /* transform: translateY(-8px) scale(1.05); */
+}
+
 nav {
   position: fixed;
-  bottom: 0;
-  left: 0;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 100;
   color: white;
   font-size: 2rem;
-  padding: 0.5rem;
+  padding: 10px 20px;
+  background-color: rgba(51, 51, 51, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
 }
 
 .btn {
   cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transform-origin: bottom;
 }
 
-#one{
+.btn:hover {
+  transform: translateY(-10px) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.btn:hover::after {
+  opacity: 1;
+}
+
+#one {
   background-color: #00ffff;
+  color: black;
 }
 
-#two{
+#two {
   background-color: yellow;
+  color: black;
 }
 
-#three{
+#three {
   background-color: #ff00ff;
+  color: black;
 }
 
-#four{
+#four {
   background-color: black;
+  color: white;
+}
+
+/* Dock hover effect */
+nav:hover .btn {
+  margin: 0 5px;
+}
+
+nav:hover .btn:hover {
+  margin: 0 15px;
 }
